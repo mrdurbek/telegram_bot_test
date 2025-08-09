@@ -34,7 +34,7 @@ def run_server():
 
 # Bot Configuration
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-CHANNEL_ID = ""
+CHANNEL_ID = "@mypubgbot_test"
 GROUP_ID = "@mypubg_test"
 YOUTUBE_LINK = "https://youtube.com/@swkombat?si=5vVIGfj_NYx-yJLK"
 ADMIN_IDS = [6322816106,1401881769,6072785933]
@@ -122,7 +122,7 @@ def send_subscription_prompt(user_id):
 
 @bot.callback_query_handler(func=lambda call: call.data == "check_sub")
 def check_sub_callback(call):
-    if check_subscription(true):
+    if check_subscription(call.from_user.id):
         bot.send_message(call.from_user.id, "✅ Obuna tasdiqlandi!")
         send_main_menu(call.from_user.id) 
     else:
