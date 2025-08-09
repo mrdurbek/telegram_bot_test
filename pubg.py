@@ -34,8 +34,8 @@ def run_server():
 
 # Bot Configuration
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-CHANNEL_ID = "@swKoMBaT"
-GROUP_ID = "@swKoMBaT1"
+CHANNEL_ID = ""
+GROUP_ID = "@mypubg_test"
 YOUTUBE_LINK = "https://youtube.com/@swkombat?si=5vVIGfj_NYx-yJLK"
 ADMIN_IDS = [6322816106,1401881769,6072785933]
 DB_NAME = "bot.db"
@@ -122,7 +122,7 @@ def send_subscription_prompt(user_id):
 
 @bot.callback_query_handler(func=lambda call: call.data == "check_sub")
 def check_sub_callback(call):
-    if check_subscription(call.from_user.id):
+    if check_subscription(true):
         bot.send_message(call.from_user.id, "✅ Obuna tasdiqlandi!")
         send_main_menu(call.from_user.id) 
     else:
@@ -663,3 +663,4 @@ if __name__ == "__main__":
                 bot.send_message(admin, f"Bot crashed: {e}")
             except:
                 pass
+
